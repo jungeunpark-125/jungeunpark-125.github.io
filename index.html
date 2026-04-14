@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jung-eun Park — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink:       #1a1814;
+      --ink-mid:   #4a4640;
+      --ink-light: #8a8480;
+      --paper:     #f8f5f0;
+      --cream:     #efe9e0;
+      --rule:      #d4cdc4;
+      --accent:    #2c4a7c;
+      --accent2:   #8b3a2a;
+      --gold:      #b8924a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ─── TOP BAR ─── */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 48px;
+    }
+    .topbar-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--cream);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .topbar-nav {
+      display: flex;
+      gap: 28px;
+    }
+    .topbar-nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .topbar-nav a:hover { color: var(--cream); }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding-top: 48px;
+      min-height: 340px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-left {
+      padding: 70px 60px 60px;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .hero-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 58px;
+      font-weight: 500;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .hero-tagline {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 19px;
+      color: var(--ink-mid);
+      max-width: 420px;
+      line-height: 1.55;
+    }
+    .hero-right {
+      padding: 70px 60px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .contact-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      min-width: 76px;
+    }
+    .contact-value {
+      font-size: 14px;
+      color: var(--ink-mid);
+    }
+    .contact-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .contact-value a:hover { text-decoration: underline; }
+
+    /* ─── LAYOUT ─── */
+    .main {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      min-height: calc(100vh - 340px);
+    }
+
+    /* ─── SIDEBAR ─── */
+    .sidebar {
+      border-right: 1px solid var(--rule);
+      padding: 50px 0;
+      position: sticky;
+      top: 48px;
+      height: calc(100vh - 48px);
+      overflow-y: auto;
+    }
+    .sidebar-section {
+      padding: 0 28px 30px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 30px;
+    }
+    .sidebar-section:last-child { border-bottom: none; }
+    .sidebar-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .sidebar-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .sidebar-link::before {
+      content: '';
+      display: inline-block;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--rule);
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .sidebar-link:hover { color: var(--accent); }
+    .sidebar-link:hover::before { background: var(--accent); }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      background: var(--cream);
+      color: var(--ink-mid);
+      padding: 3px 8px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── CONTENT ─── */
+    .content {
+      padding: 50px 70px 100px;
+    }
+
+    /* ─── SECTION ─── */
+    .section {
+      margin-bottom: 60px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 30px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+    .section-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* ─── ENTRY ─── */
+    .entry {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 0 30px;
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .entry-meta {
+      padding-top: 3px;
+    }
+    .entry-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+      line-height: 1.5;
+    }
+    .entry-org {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--accent2);
+      letter-spacing: 0.05em;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+    .entry-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .entry-subtitle {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--ink-mid);
+      margin-bottom: 10px;
+    }
+    .entry-body {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+    .entry-body ul {
+      padding-left: 16px;
+    }
+    .entry-body li {
+      margin-bottom: 4px;
+    }
+    .entry-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 2px 8px;
+      letter-spacing: 0.06em;
+      margin-top: 8px;
+    }
+
+    /* ─── SKILLS GRID ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .skill-block { }
+    .skill-block-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .pill {
+      font-size: 13px;
+      color: var(--ink-mid);
+      background: var(--cream);
+      padding: 4px 12px;
+    }
+    .pill.accent { background: #e8edf5; color: var(--accent); }
+
+    /* ─── AWARD ENTRIES ─── */
+    .award-row {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .award-row:last-child { border-bottom: none; }
+    .award-year {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      min-width: 36px;
+    }
+    .award-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 17px;
+      color: var(--ink);
+      flex: 1;
+    }
+    .award-org {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink-light);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── PUBLICATION ─── */
+    .pub-entry {
+      padding: 16px 0;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .pub-entry:last-child { border-bottom: none; }
+    .pub-title {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      color: var(--ink);
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+    .pub-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.05em;
+    }
+    .pub-abstract {
+      font-size: 13px;
+      color: var(--ink-mid);
+      margin-top: 7px;
+      line-height: 1.7;
+    }
+
+    /* ─── LANG ─── */
+    .lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px dotted var(--rule);
+    }
+    .lang-row:last-child { border-bottom: none; }
+    .lang-name {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      color: var(--ink);
+    }
+    .lang-level {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 30px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer p {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── SCROLL ANIMATION ─── */
+    .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 50px 30px 40px; }
+      .hero-right { padding: 30px; }
+      .main { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; border-right: none; border-bottom: 1px solid var(--rule); }
+      .content { padding: 40px 30px 80px; }
+      .entry { grid-template-columns: 1fr; }
+      .entry-meta { margin-bottom: 8px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .topbar { padding: 0 20px; }
+      .topbar-nav { gap: 16px; }
+      footer { padding: 24px 30px; flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<nav class="topbar">
+  <span class="topbar-name">Jung-eun Park</span>
+  <div class="topbar-nav">
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#awards">Awards</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-left">
+    <div class="hero-label">Curriculum Vitae</div>
+    <h1 class="hero-name">Jung-eun<br>Park</h1>
+    <p class="hero-tagline">Leveraging data-driven analysis and digital transformation to advance industrial policy and global governance.</p>
+  </div>
+  <div class="hero-right">
+    <div class="contact-row">
+      <span class="contact-label">Email</span>
+      <span class="contact-value"><a href="mailto:jungeunpark0125@gmail.com">jungeunpark0125@gmail.com</a></span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">Location</span>
+      <span class="contact-value">Daejeon, South Korea</span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">Affiliation</span>
+      <span class="contact-value">KDI School of Public Policy &amp; Management, MDP</span>
+    </div>
+    <div class="contact-row">
+      <span class="contact-label">Cert.</span>
+      <span class="contact-value">ADSP &nbsp;·&nbsp; Big Data Analysis Engineer</span>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN LAYOUT -->
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">Quick Links</div>
+      <a class="sidebar-link" href="#education">Education</a>
+      <a class="sidebar-link" href="#experience">Experience</a>
+      <a class="sidebar-link" href="#research">Research</a>
+      <a class="sidebar-link" href="#conference">Conference</a>
+      <a class="sidebar-link" href="#projects">Projects</a>
+      <a class="sidebar-link" href="#awards">Awards</a>
+      <a class="sidebar-link" href="#skills">Skills</a>
+      <a class="sidebar-link" href="#languages">Languages</a>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Research Interests</div>
+      <div class="tag-list">
+        <span class="tag">Industrial Policy</span>
+        <span class="tag">Innovation</span>
+        <span class="tag">NLP</span>
+        <span class="tag">ML</span>
+        <span class="tag">Digital Transformation</span>
+        <span class="tag">Data Visualization</span>
+        <span class="tag">Time Series</span>
+      </div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">Languages</div>
+      <a class="sidebar-link" href="#">Korean — Native</a>
+      <a class="sidebar-link" href="#">English — OPIc IH</a>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- EDUCATION -->
+    <section class="section fade-in" id="education">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">Education</h2>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2024.03 –<br>present</div>
+          <div class="entry-org">KDI School</div>
+        </div>
+        <div>
+          <div class="entry-title">Master of Public Policy</div>
+          <div class="entry-subtitle">KDI School of Public Policy and Management, Sejong</div>
+          <div class="entry-body">Focus on innovation policy, SME policy, and energy economics. Coursework in empirical policy analysis, causal inference, and data-driven policy evaluation.</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2019.02 –<br>2024.02</div>
+          <div class="entry-org">Handong Univ.</div>
+        </div>
+        <div>
+          <div class="entry-title">Bachelor of Engineering and Arts</div>
+          <div class="entry-subtitle">Handong Global University — Double Major: ICT Convergence &amp; International Studies</div>
+          <div class="entry-body">Total GPA 3.66 / 4.5 &nbsp;·&nbsp; Major GPA 3.72 / 4.5</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section class="section fade-in" id="experience">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2025.08 –<br>2026.02</div>
+          <div class="entry-org">KOICA YP</div>
+        </div>
+        <div>
+          <div class="entry-title">Global Business Development</div>
+          <div class="entry-subtitle">MEDIAIPLUS, Inc. — KOICA Young Professional Program</div>
+          <div class="entry-body">
+            <ul>
+              <li>Global Communication &amp; Strategic Synthesis: coordinated cross-border communications and synthesized strategic insights across international partners.</li>
+              <li>Operational Process Design &amp; Efficiency Optimization: redesigned internal workflows to streamline project delivery and reduce operational friction.</li>
+              <li>AI-Driven Content Production &amp; Quality Assurance: led AI-assisted content pipelines, maintaining quality standards for global-facing deliverables.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2024.10 –<br>2024.11</div>
+          <div class="entry-org">POSCO</div>
+        </div>
+        <div>
+          <div class="entry-title">Corporate Practicum Program</div>
+          <div class="entry-subtitle">POSCO 기업실무형 일경험 프로그램</div>
+          <div class="entry-body">Applied design-thinking methodology to regional tourism revitalization; conducted field surveys and analyzed 478 online reviews to identify consumer pain points; developed a prototype for a local tourism hub targeting the 20–30s demographic.</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2024.05 –<br>2024.07</div>
+          <div class="entry-org">POSCO·POSTECH</div>
+        </div>
+        <div>
+          <div class="entry-title">POSCO AI·Big Data Academy</div>
+          <div class="entry-subtitle">Industrial Process Optimization — 26th Cohort</div>
+          <div class="entry-body">
+            <ul>
+              <li>Developed big data and machine learning models for industrial process optimization and digital transformation.</li>
+              <li>Built an optimization model reducing manufacturing defect rate to 1.0%.</li>
+              <li>Presented project results to industry experts; awarded <strong>3rd place</strong> in Innovation &amp; Technology Application.</li>
+            </ul>
+          </div>
+          <span class="entry-badge">3rd Place · Innovation &amp; Technology</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2023.08 –<br>2024.01</div>
+          <div class="entry-org">SL Corp.</div>
+        </div>
+        <div>
+          <div class="entry-title">Industry–Academia Research Assistant</div>
+          <div class="entry-subtitle">LED Thermal Prediction &amp; Web Interface Development</div>
+          <div class="entry-body">
+            <ul>
+              <li>Developed a deep-learning-based ML model predicting LED thermal behavior with &lt;10% prediction error.</li>
+              <li>Analyzed key thermal influencing factors per time interval to optimize development efficiency.</li>
+              <li>Built and deployed a real-time Shiny web visualization interface to the company's internal server network.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2022.02 –<br>2022.12</div>
+          <div class="entry-org">FootprintSquare</div>
+        </div>
+        <div>
+          <div class="entry-title">Frontend Development Intern</div>
+          <div class="entry-subtitle">Mobile App Development (Flutter / Firebase)</div>
+          <div class="entry-body">Developed a local tennis match recording and community app; implemented front-end architecture using Flutter and Firebase.</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2023.03 –<br>2023.06</div>
+          <div class="entry-org">Handong Univ.</div>
+        </div>
+        <div>
+          <div class="entry-title">Sub-Lab Director, Data Analysis Lab</div>
+          <div class="entry-subtitle">Research Lab Leadership</div>
+          <div class="entry-body">Organized study groups aligned with researchers' interests; integrated past research materials via Notion; coordinated inter-lab sports events and data visualization camps. Entire lab members received awards at a data visualization competition under this leadership.</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2021.07 –<br>2022.06</div>
+          <div class="entry-org">Handong Univ.</div>
+        </div>
+        <div>
+          <div class="entry-title">Secretary-General, Handong International Development Associate</div>
+          <div class="entry-subtitle">International Development Studies Society</div>
+          <div class="entry-body">Conducted thematic research on international development cooperation; led fieldwork and statistics-based analysis on educational and career challenges facing multicultural youth in Korea.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section fade-in" id="research">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Research</h2>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2023.08 –<br>2024.01</div>
+          <div class="entry-org">NRF · SL Corp.</div>
+        </div>
+        <div>
+          <div class="entry-title">ML-Based LED Thermal Prediction Model &amp; Web Interface</div>
+          <div class="entry-subtitle">Industry–Academia Collaboration, SL Corp. / NRF</div>
+          <div class="entry-body">Designed neural network algorithms predicting component-specific temperatures; developed R Shiny visualization interface. Achieved &lt;10% prediction error. Enabled real-time process monitoring for engineering teams.</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2023.08 –<br>2024.01</div>
+          <div class="entry-org">NRF</div>
+        </div>
+        <div>
+          <div class="entry-title">Selling Korea: Online Nationalism in Foreign-Observation Content</div>
+          <div class="entry-subtitle">Korea Research Foundation — Discourse Analysis</div>
+          <div class="entry-body">Analyzed nationalist discourse in YouTube comments on Korean foreigner-observation content (국뻥 channels). Applied BERT-based sentiment analysis and LDA topic modeling to extract dominant themes and trend shifts. Identified correlations between soft nationalist framing and audience engagement patterns.</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2022</div>
+          <div class="entry-org">NRF</div>
+        </div>
+        <div>
+          <div class="entry-title">AI-Based Multivariate Digital Human Body Model for Human-Centered Product Design</div>
+          <div class="entry-subtitle">Korea Research Foundation</div>
+          <div class="entry-body">Analyzed 3D head scan data (2,377 Korean children &amp; adolescents, 2004–2013). Produced age-specific growth curve visualizations and statistical gender analysis (mean, SD, hypothesis testing) for anthropometric product design.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONFERENCE -->
+    <section class="section fade-in" id="conference">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Conference</h2>
+      </div>
+
+      <div class="pub-entry">
+        <div class="pub-title">Customer Experience Improvement Initiatives based on Topic Modeling Analysis of Food Purchase Reviews</div>
+        <div class="pub-meta">ICEE-CCA 2023 &nbsp;·&nbsp; Oral Presentation</div>
+        <div class="pub-abstract">Analyzed 2 million Kurly purchase reviews (2020–2022) using Korean morpheme analysis (Mecab) and three topic models (BERTopic, LDA, CTM). CTM achieved best performance, extracting three key topics: delivery status, product characteristics, and recipe relevance. Developed a responsive web demo providing consumers with topic-based product information to enhance purchase experience and platform credibility.</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section fade-in" id="projects">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Projects</h2>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2024.05 –<br>2024.07</div>
+          <div class="entry-org">POSCO Academy</div>
+        </div>
+        <div>
+          <div class="entry-title">LLM-Based Collaborative Robot Arm for Apple Harvesting</div>
+          <div class="entry-subtitle">Smart Farm — Agricultural Automation</div>
+          <div class="entry-body">Designed a multi-robot system coordinated by LLM for automated orchard harvesting. Implemented OWL-ViT object detection to identify and sort apples by size; robots communicated via LLM to allocate subtasks and generate path plans.</div>
+          <span class="entry-badge">3rd Place · POSCO AI BigData Academy</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2024.10 –<br>2024.11</div>
+          <div class="entry-org">POSCO Program</div>
+        </div>
+        <div>
+          <div class="entry-title">Tourism Revitalization Strategy for Homigot, North Gyeongsang</div>
+          <div class="entry-subtitle">Regional Economic Policy — Design Thinking</div>
+          <div class="entry-body">Conducted 2 field surveys and analyzed 478 online reviews. Developed a concept for a social hub combining efficiency and romance for the 20–30s demographic, incorporating stamp tours, compound cultural spaces, and local specialty menus. Built a virtual prototype using Zepeto for stakeholder feedback.</div>
+          <span class="entry-badge">POSCO Corporate Practicum Award</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2023.05 –<br>2023.08</div>
+          <div class="entry-org">Law Kick</div>
+        </div>
+        <div>
+          <div class="entry-title">Law Kick — AI-Based Legal Advisory System for Startups</div>
+          <div class="entry-subtitle">Startup Project — Public Data Innovation</div>
+          <div class="entry-body">Planned an AI-powered legal consultation platform improving legal accessibility for early-stage entrepreneurs, leveraging open government data.</div>
+          <span class="entry-badge">Encouragement Prize · Gyeongbuk Open Data Startup Contest</span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2023.03 –<br>2023.06</div>
+          <div class="entry-org">Coursework</div>
+        </div>
+        <div>
+          <div class="entry-title">Consumer Experience Analysis of Online Grocery Reviews</div>
+          <div class="entry-subtitle">Big Data Analysis — Topic Modeling</div>
+          <div class="entry-body">Analyzed Kurly purchase review data to explore the relationship between consumer experience and product freshness. Applied topic modeling for data-driven insights and built an interactive visualization tool; results presented at ICEE-CCA 2023.</div>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-meta">
+          <div class="entry-date">2022</div>
+          <div class="entry-org">Data Analysis Lab</div>
+        </div>
+        <div>
+          <div class="entry-title">AiCAR Fleet Analytics — Vehicle Pattern Visualization</div>
+          <div class="entry-subtitle">Data Visualization Competition</div>
+          <div class="entry-body">Analyzed AiCAR customer fleet data: mapped company locations via Leaflet, and visualized seasonal fuel efficiency, speed, mileage, and odometer readings using radar charts and bar charts.</div>
+          <span class="entry-badge">Encouragement Prize · Handong SW Festival</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section fade-in" id="awards">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">Awards &amp; Honors</h2>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2024</span>
+        <span class="award-name">인재창조원 과제수행 창의상</span>
+        <span class="award-org">POSCO</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2024</span>
+        <span class="award-name">AI BigData Project 장려상 (Encouragement Prize)</span>
+        <span class="award-org">POSCO AI BigData Academy</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2023</span>
+        <span class="award-name">3rd Place — Gyeongbuk Open Data Startup Competition</span>
+        <span class="award-org">North Gyeongsang Province</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2022</span>
+        <span class="award-name">Encouragement Prize — Data Visualization Competition</span>
+        <span class="award-org">Handong Global University</span>
+      </div>
+      <div class="award-row">
+        <span class="award-year">2021</span>
+        <span class="award-name">Excellence Award — SW Education Video Competition</span>
+        <span class="award-org">Handong Global University</span>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section fade-in" id="skills">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">Technical Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <div class="skill-block-title">Programming</div>
+          <div class="skill-pills">
+            <span class="pill accent">Python</span>
+            <span class="pill accent">R</span>
+            <span class="pill accent">SQL</span>
+            <span class="pill">C</span>
+            <span class="pill">C++</span>
+            <span class="pill">Flutter</span>
+            <span class="pill">Firebase</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-title">Machine Learning / AI</div>
+          <div class="skill-pills">
+            <span class="pill">Machine Learning</span>
+            <span class="pill">NLP</span>
+            <span class="pill">Topic Modeling</span>
+            <span class="pill">BERT / LLM</span>
+            <span class="pill">Time Series</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-title">Data & Visualization</div>
+          <div class="skill-pills">
+            <span class="pill">R Shiny</span>
+            <span class="pill">Leaflet</span>
+            <span class="pill">Data Visualization</span>
+            <span class="pill">Statistical Analysis</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-block-title">Certificates</div>
+          <div class="skill-pills">
+            <span class="pill accent">ADSP</span>
+            <span class="pill accent">Big Data Analysis Engineer</span>
+            <span class="pill">OPIc IH</span>
+            <span class="pill">TOEIC 825</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section class="section fade-in" id="languages">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <h2 class="section-title">Languages</h2>
+      </div>
+      <div class="lang-row">
+        <span class="lang-name">Korean</span>
+        <span class="lang-level">Native</span>
+      </div>
+      <div class="lang-row">
+        <span class="lang-name">English</span>
+        <span class="lang-level">OPIc IH &nbsp;·&nbsp; TOEIC 825</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <p>Jung-eun Park &nbsp;·&nbsp; Updated April 2026</p>
+  <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f6366753b3c3d3e4f616e796a7d216c6062">[email&#160;protected]</a></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = docum
