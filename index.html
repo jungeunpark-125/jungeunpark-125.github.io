@@ -6,7 +6,7 @@
   <title>Jung-eun Park — CV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@300;400;500&family=Lato:wght@300;400;700&family=Noto+Serif+KR:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --ink:       #1a1814;
@@ -21,7 +21,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -45,6 +44,7 @@
       padding: 0 40px;
       height: 48px;
     }
+    .topbar-left { display: flex; align-items: center; gap: 24px; }
     .topbar-name {
       font-family: 'DM Mono', monospace;
       font-size: 12px;
@@ -52,10 +52,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
     }
-    .topbar-nav {
-      display: flex;
-      gap: 28px;
-    }
+    .topbar-nav { display: flex; gap: 28px; }
     .topbar-nav a {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
@@ -66,6 +63,46 @@
       transition: color 0.2s;
     }
     .topbar-nav a:hover { color: var(--cream); }
+    .topbar-actions { display: flex; align-items: center; gap: 10px; }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      background: #2e2c28;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--ink-light);
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active { background: var(--accent); color: #fff; }
+
+    /* PDF button */
+    .pdf-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 5px 12px;
+      border: 1px solid #444;
+      border-radius: 3px;
+      background: transparent;
+      color: var(--ink-light);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .pdf-btn:hover { border-color: var(--cream); color: var(--cream); }
 
     /* ─── HERO ─── */
     .hero {
@@ -113,11 +150,7 @@
       justify-content: center;
       gap: 12px;
     }
-    .contact-row {
-      display: flex;
-      align-items: baseline;
-      gap: 14px;
-    }
+    .contact-row { display: flex; align-items: baseline; gap: 14px; }
     .contact-label {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
@@ -126,22 +159,12 @@
       text-transform: uppercase;
       min-width: 76px;
     }
-    .contact-value {
-      font-size: 14px;
-      color: var(--ink-mid);
-    }
-    .contact-value a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    .contact-value { font-size: 14px; color: var(--ink-mid); }
+    .contact-value a { color: var(--accent); text-decoration: none; }
     .contact-value a:hover { text-decoration: underline; }
 
     /* ─── LAYOUT ─── */
-    .main {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      min-height: calc(100vh - 340px);
-    }
+    .main { display: grid; grid-template-columns: 220px 1fr; }
 
     /* ─── SIDEBAR ─── */
     .sidebar {
@@ -198,14 +221,10 @@
     }
 
     /* ─── CONTENT ─── */
-    .content {
-      padding: 50px 70px 100px;
-    }
+    .content { padding: 50px 70px 100px; }
 
     /* ─── SECTION ─── */
-    .section {
-      margin-bottom: 60px;
-    }
+    .section { margin-bottom: 60px; }
     .section-header {
       display: flex;
       align-items: center;
@@ -237,9 +256,7 @@
       border-bottom: 1px dotted var(--rule);
     }
     .entry:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .entry-meta {
-      padding-top: 3px;
-    }
+    .entry-meta { padding-top: 3px; }
     .entry-date {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
@@ -270,17 +287,9 @@
       color: var(--ink-mid);
       margin-bottom: 10px;
     }
-    .entry-body {
-      font-size: 14px;
-      color: var(--ink-mid);
-      line-height: 1.75;
-    }
-    .entry-body ul {
-      padding-left: 16px;
-    }
-    .entry-body li {
-      margin-bottom: 4px;
-    }
+    .entry-body { font-size: 14px; color: var(--ink-mid); line-height: 1.75; }
+    .entry-body ul { padding-left: 16px; }
+    .entry-body li { margin-bottom: 4px; }
     .entry-badge {
       display: inline-block;
       font-family: 'DM Mono', monospace;
@@ -292,13 +301,8 @@
       margin-top: 8px;
     }
 
-    /* ─── SKILLS GRID ─── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .skill-block { }
+    /* ─── SKILLS ─── */
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .skill-block-title {
       font-family: 'DM Mono', monospace;
       font-size: 11px;
@@ -310,15 +314,10 @@
       border-bottom: 1px solid var(--rule);
     }
     .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
-    .pill {
-      font-size: 13px;
-      color: var(--ink-mid);
-      background: var(--cream);
-      padding: 4px 12px;
-    }
+    .pill { font-size: 13px; color: var(--ink-mid); background: var(--cream); padding: 4px 12px; }
     .pill.accent { background: #e8edf5; color: var(--accent); }
 
-    /* ─── AWARD ENTRIES ─── */
+    /* ─── AWARDS ─── */
     .award-row {
       display: flex;
       align-items: baseline;
@@ -327,52 +326,18 @@
       border-bottom: 1px dotted var(--rule);
     }
     .award-row:last-child { border-bottom: none; }
-    .award-year {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--gold);
-      min-width: 36px;
-    }
-    .award-name {
-      font-family: 'EB Garamond', serif;
-      font-size: 17px;
-      color: var(--ink);
-      flex: 1;
-    }
-    .award-org {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--ink-light);
-      letter-spacing: 0.06em;
-    }
+    .award-year { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); min-width: 36px; }
+    .award-name { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--ink); flex: 1; }
+    .award-org { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-light); letter-spacing: 0.06em; }
 
-    /* ─── PUBLICATION ─── */
-    .pub-entry {
-      padding: 16px 0;
-      border-bottom: 1px dotted var(--rule);
-    }
+    /* ─── CONFERENCE ─── */
+    .pub-entry { padding: 16px 0; border-bottom: 1px dotted var(--rule); }
     .pub-entry:last-child { border-bottom: none; }
-    .pub-title {
-      font-family: 'EB Garamond', serif;
-      font-size: 18px;
-      color: var(--ink);
-      line-height: 1.4;
-      margin-bottom: 4px;
-    }
-    .pub-meta {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--ink-light);
-      letter-spacing: 0.05em;
-    }
-    .pub-abstract {
-      font-size: 13px;
-      color: var(--ink-mid);
-      margin-top: 7px;
-      line-height: 1.7;
-    }
+    .pub-title { font-family: 'EB Garamond', serif; font-size: 18px; color: var(--ink); line-height: 1.4; margin-bottom: 4px; }
+    .pub-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-light); letter-spacing: 0.05em; }
+    .pub-abstract { font-size: 13px; color: var(--ink-mid); margin-top: 7px; line-height: 1.7; }
 
-    /* ─── LANG ─── */
+    /* ─── LANGUAGES ─── */
     .lang-row {
       display: flex;
       align-items: center;
@@ -381,17 +346,8 @@
       border-bottom: 1px dotted var(--rule);
     }
     .lang-row:last-child { border-bottom: none; }
-    .lang-name {
-      font-family: 'EB Garamond', serif;
-      font-size: 18px;
-      color: var(--ink);
-    }
-    .lang-level {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--ink-light);
-      letter-spacing: 0.08em;
-    }
+    .lang-name { font-family: 'EB Garamond', serif; font-size: 18px; color: var(--ink); }
+    .lang-level { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-light); letter-spacing: 0.08em; }
 
     /* ─── FOOTER ─── */
     footer {
@@ -401,19 +357,38 @@
       align-items: center;
       justify-content: space-between;
     }
-    footer p {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      color: var(--ink-light);
-      letter-spacing: 0.08em;
+    footer p { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ink-light); letter-spacing: 0.08em; }
+
+    /* ─── LANGUAGE SWITCH ─── */
+    [data-lang="ko"] { display: none; }
+    body.ko [data-lang="en"] { display: none; }
+    body.ko [data-lang="ko"] { display: revert; }
+    body.ko .hero-name { font-family: 'Noto Serif KR', serif; font-size: 46px; }
+    body.ko .hero-tagline { font-family: 'Noto Serif KR', serif; font-style: normal; font-size: 16px; }
+    body.ko .section-title { font-family: 'Noto Serif KR', serif; font-size: 22px; }
+    body.ko .entry-title { font-family: 'Noto Serif KR', serif; font-size: 16px; }
+    body.ko .entry-subtitle { font-family: 'Noto Serif KR', serif; font-style: normal; font-size: 13px; }
+    body.ko .award-name { font-family: 'Noto Serif KR', serif; font-size: 14px; }
+    body.ko .pub-title { font-family: 'Noto Serif KR', serif; font-size: 15px; }
+    body.ko .lang-name { font-family: 'Noto Serif KR', serif; font-size: 15px; }
+    body.ko .entry-body { font-family: 'Noto Serif KR', serif; font-size: 13px; }
+
+    /* ─── PRINT / PDF ─── */
+    @media print {
+      .topbar, .sidebar, footer { display: none !important; }
+      .hero { padding-top: 0; min-height: auto; }
+      .hero-left { padding: 24px 30px 16px; }
+      .hero-right { padding: 24px 30px; }
+      .hero-name { font-size: 36px; }
+      .main { grid-template-columns: 1fr; }
+      .content { padding: 20px 30px 40px; }
+      .entry { page-break-inside: avoid; }
+      .section { page-break-inside: avoid; margin-bottom: 28px; }
+      body { font-size: 13px; }
+      a { color: inherit !important; text-decoration: none !important; }
     }
 
-    /* ─── SCROLL ANIMATION ─── */
-    .fade-in {
-      opacity: 1;
-      transform: none;
-    }
-
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       .hero-left { border-right: none; border-bottom: 1px solid var(--rule); padding: 50px 30px 40px; }
@@ -424,8 +399,8 @@
       .entry { grid-template-columns: 1fr; }
       .entry-meta { margin-bottom: 8px; }
       .skills-grid { grid-template-columns: 1fr; }
-      .topbar { padding: 0 20px; }
-      .topbar-nav { gap: 16px; }
+      .topbar { padding: 0 16px; }
+      .topbar-nav { display: none; }
       footer { padding: 24px 30px; flex-direction: column; gap: 8px; }
     }
   </style>
@@ -434,22 +409,45 @@
 
 <!-- TOP BAR -->
 <nav class="topbar">
-  <span class="topbar-name">Jung-eun Park</span>
-  <div class="topbar-nav">
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#awards">Awards</a>
+  <div class="topbar-left">
+    <span class="topbar-name">Jung-eun Park</span>
+    <div class="topbar-nav">
+      <a href="#education"><span data-lang="en">Education</span><span data-lang="ko">학력</span></a>
+      <a href="#experience"><span data-lang="en">Experience</span><span data-lang="ko">경력</span></a>
+      <a href="#research"><span data-lang="en">Research</span><span data-lang="ko">연구</span></a>
+      <a href="#projects"><span data-lang="en">Projects</span><span data-lang="ko">프로젝트</span></a>
+      <a href="#awards"><span data-lang="en">Awards</span><span data-lang="ko">수상</span></a>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
+    </div>
+    <button class="pdf-btn" onclick="window.print()">
+      <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.5 1v8M2.5 6.5l3 3 3-3M1 11h9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      PDF
+    </button>
   </div>
 </nav>
 
 <!-- HERO -->
 <header class="hero">
   <div class="hero-left">
-    <div class="hero-label">Curriculum Vitae</div>
-    <h1 class="hero-name">Jung-eun<br>Park</h1>
-    <p class="hero-tagline">Leveraging data-driven analysis and digital transformation to advance industrial policy and global governance.</p>
+    <div class="hero-label">
+      <span data-lang="en">Curriculum Vitae</span>
+      <span data-lang="ko">이력서</span>
+    </div>
+    <h1 class="hero-name">
+      <span data-lang="en">Jung-eun<br>Park</span>
+      <span data-lang="ko">박정은</span>
+    </h1>
+    <p class="hero-tagline">
+      <span data-lang="en">Leveraging data-driven analysis and digital transformation to advance industrial policy and global governance.</span>
+      <span data-lang="ko">데이터 기반 분석과 디지털 전환을 통해 산업 정책 및 글로벌 거버넌스 문제 해결에 기여합니다.</span>
+    </p>
   </div>
   <div class="hero-right">
     <div class="contact-row">
@@ -457,105 +455,149 @@
       <span class="contact-value"><a href="mailto:jungeunpark0125@gmail.com">jungeunpark0125@gmail.com</a></span>
     </div>
     <div class="contact-row">
-      <span class="contact-label">Location</span>
-      <span class="contact-value">Sejong, South Korea</span>
+      <span class="contact-label"><span data-lang="en">Location</span><span data-lang="ko">거주지</span></span>
+      <span class="contact-value">
+        <span data-lang="en">Daejeon, South Korea</span>
+        <span data-lang="ko">대전광역시 유성구</span>
+      </span>
     </div>
     <div class="contact-row">
-      <span class="contact-label">Affiliation</span>
-      <span class="contact-value">KDI School of Public Policy &amp; Management, MDP</span>
+      <span class="contact-label"><span data-lang="en">Affiliation</span><span data-lang="ko">소속</span></span>
+      <span class="contact-value">
+        <span data-lang="en">KDI School of Public Policy &amp; Management, MDP</span>
+        <span data-lang="ko">KDI 국제정책대학원, 개발정책학과 (MDP)</span>
+      </span>
     </div>
     <div class="contact-row">
       <span class="contact-label">Cert.</span>
-      <span class="contact-value">ADSP &nbsp;·&nbsp; Big Data Analysis Engineer</span>
+      <span class="contact-value">
+        ADSP &nbsp;·&nbsp;
+        <span data-lang="en">Big Data Analysis Engineer</span>
+        <span data-lang="ko">빅데이터분석기사</span>
+      </span>
     </div>
   </div>
 </header>
 
-<!-- MAIN LAYOUT -->
+<!-- MAIN -->
 <div class="main">
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-section">
-      <div class="sidebar-title">Quick Links</div>
-      <a class="sidebar-link" href="#education">Education</a>
-      <a class="sidebar-link" href="#experience">Experience</a>
-      <a class="sidebar-link" href="#research">Research</a>
-      <a class="sidebar-link" href="#conference">Conference</a>
-      <a class="sidebar-link" href="#projects">Projects</a>
-      <a class="sidebar-link" href="#awards">Awards</a>
-      <a class="sidebar-link" href="#skills">Skills</a>
-      <a class="sidebar-link" href="#languages">Languages</a>
+      <div class="sidebar-title"><span data-lang="en">Quick Links</span><span data-lang="ko">바로가기</span></div>
+      <a class="sidebar-link" href="#education"><span data-lang="en">Education</span><span data-lang="ko">학력</span></a>
+      <a class="sidebar-link" href="#experience"><span data-lang="en">Experience</span><span data-lang="ko">경력</span></a>
+      <a class="sidebar-link" href="#research"><span data-lang="en">Research</span><span data-lang="ko">연구</span></a>
+      <a class="sidebar-link" href="#conference"><span data-lang="en">Conference</span><span data-lang="ko">학회</span></a>
+      <a class="sidebar-link" href="#projects"><span data-lang="en">Projects</span><span data-lang="ko">프로젝트</span></a>
+      <a class="sidebar-link" href="#awards"><span data-lang="en">Awards</span><span data-lang="ko">수상</span></a>
+      <a class="sidebar-link" href="#skills"><span data-lang="en">Skills</span><span data-lang="ko">기술</span></a>
+      <a class="sidebar-link" href="#languages"><span data-lang="en">Languages</span><span data-lang="ko">어학</span></a>
     </div>
     <div class="sidebar-section">
-      <div class="sidebar-title">Research Interests</div>
+      <div class="sidebar-title"><span data-lang="en">Research Interests</span><span data-lang="ko">연구 관심 분야</span></div>
       <div class="tag-list">
-        <span class="tag">Industrial Policy</span>
-        <span class="tag">Innovation</span>
+        <span class="tag"><span data-lang="en">Industrial Policy</span><span data-lang="ko">산업 정책</span></span>
+        <span class="tag"><span data-lang="en">Innovation</span><span data-lang="ko">혁신</span></span>
         <span class="tag">NLP</span>
         <span class="tag">ML</span>
-        <span class="tag">Digital Transformation</span>
-        <span class="tag">Data Visualization</span>
-        <span class="tag">Time Series</span>
+        <span class="tag"><span data-lang="en">Digital Transformation</span><span data-lang="ko">디지털 전환</span></span>
+        <span class="tag"><span data-lang="en">Data Visualization</span><span data-lang="ko">데이터 시각화</span></span>
+        <span class="tag"><span data-lang="en">Time Series</span><span data-lang="ko">시계열 분석</span></span>
       </div>
     </div>
     <div class="sidebar-section">
-      <div class="sidebar-title">Languages</div>
-      <a class="sidebar-link" href="#">Korean — Native</a>
-      <a class="sidebar-link" href="#">English — OPIc IH</a>
+      <div class="sidebar-title"><span data-lang="en">Languages</span><span data-lang="ko">어학</span></div>
+      <span class="sidebar-link"><span data-lang="en">Korean — Native</span><span data-lang="ko">한국어 — 원어민</span></span>
+      <span class="sidebar-link"><span data-lang="en">English — OPIc IH</span><span data-lang="ko">영어 — OPIc IH</span></span>
     </div>
   </aside>
 
   <!-- CONTENT -->
   <main class="content">
 
-    <!-- EDUCATION -->
-    <section class="section fade-in" id="education">
+    <!-- 01 EDUCATION -->
+    <section class="section" id="education">
       <div class="section-header">
         <span class="section-num">01</span>
-        <h2 class="section-title">Education</h2>
+        <h2 class="section-title"><span data-lang="en">Education</span><span data-lang="ko">학력</span></h2>
       </div>
- 
+
       <div class="entry">
         <div class="entry-meta">
-          <div class="entry-date">2024.03 –<br>present</div>
+          <div class="entry-date">2026.02 –<br>present</div>
           <div class="entry-org">KDI School</div>
         </div>
         <div>
-          <div class="entry-title">Master of Public Policy</div>
-          <div class="entry-subtitle">KDI School of Public Policy and Management, Sejong</div>
+          <div class="entry-title">
+            <span data-lang="en">Master of Development Policy</span>
+            <span data-lang="ko">개발정책학 석사 (MDP)</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">KDI School of Public Policy and Management, Sejong</span>
+            <span data-lang="ko">KDI 국제정책대학원, 세종</span>
+          </div>
           <div class="entry-body">
-            Focus on innovation policy, SME policy, and energy economics.
+            <span data-lang="en">Focus on innovation policy, SME policy, and energy economics.</span>
+            <span data-lang="ko">혁신 정책, 중소기업 정책, 에너지 경제학 전공.</span>
             <br><br>
-            <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-light);letter-spacing:0.1em;text-transform:uppercase;">Spring Semester Coursework</span>
+            <span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-light);letter-spacing:0.1em;text-transform:uppercase;">
+              <span data-lang="en">Spring Semester Coursework</span><span data-lang="ko">봄학기 수강 과목</span>
+            </span>
             <ul style="margin-top:8px;">
-              <li>Introduction to Computational Social Science <span style="color:var(--ink-light);font-size:13px;">— Park, Jaehyuk</span></li>
-              <li>Industrial Policy for Small and Medium Enterprises (SMEs) <span style="color:var(--ink-light);font-size:13px;">— Kim, Minho</span></li>
-              <li>Technological Change and the Environment <span style="color:var(--ink-light);font-size:13px;">— Kim, Yeong Jae</span></li>
-              <li>Language in Public Policy and Management <span style="color:var(--ink-light);font-size:13px;">— Choi, Hye-yoon</span></li>
+              <li>
+                <span data-lang="en">Introduction to Computational Social Science</span>
+                <span data-lang="ko">컴퓨터 사회과학 개론</span>
+                <span style="color:var(--ink-light);font-size:13px;"> — Park, Jaehyuk</span>
+              </li>
+              <li>
+                <span data-lang="en">Industrial Policy for Small and Medium Enterprises (SMEs)</span>
+                <span data-lang="ko">중소기업 산업 정책</span>
+                <span style="color:var(--ink-light);font-size:13px;"> — Kim, Minho</span>
+              </li>
+              <li>
+                <span data-lang="en">Technological Change and the Environment</span>
+                <span data-lang="ko">기술 변화와 환경</span>
+                <span style="color:var(--ink-light);font-size:13px;"> — Kim, Yeong Jae</span>
+              </li>
+              <li>
+                <span data-lang="en">Language in Public Policy and Management</span>
+                <span data-lang="ko">공공정책의 언어</span>
+                <span style="color:var(--ink-light);font-size:13px;"> — Choi, Hye-yoon</span>
+              </li>
             </ul>
           </div>
         </div>
       </div>
- 
+
       <div class="entry">
         <div class="entry-meta">
           <div class="entry-date">2019.02 –<br>2024.02</div>
           <div class="entry-org">Handong Univ.</div>
         </div>
         <div>
-          <div class="entry-title">Bachelor of Engineering and Arts</div>
-          <div class="entry-subtitle">Handong Global University — Double Major: ICT Convergence &amp; International Studies</div>
-          <div class="entry-body">Total GPA 3.66 / 4.5 &nbsp;·&nbsp; Major GPA 3.72 / 4.5</div>
+          <div class="entry-title">
+            <span data-lang="en">Bachelor of Engineering and Arts</span>
+            <span data-lang="ko">공학·인문사회학 학사</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Handong Global University — Double Major: ICT Convergence &amp; International Studies</span>
+            <span data-lang="ko">한동대학교 — 복수전공: ICT융합 · 국제지역학</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Total GPA 3.66 / 4.5 &nbsp;·&nbsp; Major GPA 3.72 / 4.5</span>
+            <span data-lang="ko">전체 학점 3.66 / 4.5 &nbsp;·&nbsp; 전공 학점 3.72 / 4.5</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section class="section fade-in" id="experience">
+    <!-- 02 EXPERIENCE -->
+    <section class="section" id="experience">
       <div class="section-header">
         <span class="section-num">02</span>
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title"><span data-lang="en">Experience</span><span data-lang="ko">경력</span></h2>
       </div>
 
       <div class="entry">
@@ -564,13 +606,28 @@
           <div class="entry-org">KOICA YP</div>
         </div>
         <div>
-          <div class="entry-title">Global Business Development</div>
-          <div class="entry-subtitle">MEDIAIPLUS, Inc. — KOICA Young Professional Program</div>
+          <div class="entry-title">
+            <span data-lang="en">Global Business Development</span>
+            <span data-lang="ko">글로벌 비즈니스 개발</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">MEDIAIPLUS, Inc. — KOICA Young Professional Program</span>
+            <span data-lang="ko">미디어아이플러스(주) — KOICA 영프로페셔널 프로그램</span>
+          </div>
           <div class="entry-body">
             <ul>
-              <li>Global Communication &amp; Strategic Synthesis: coordinated cross-border communications and synthesized strategic insights across international partners.</li>
-              <li>Operational Process Design &amp; Efficiency Optimization: redesigned internal workflows to streamline project delivery and reduce operational friction.</li>
-              <li>AI-Driven Content Production &amp; Quality Assurance: led AI-assisted content pipelines, maintaining quality standards for global-facing deliverables.</li>
+              <li>
+                <span data-lang="en">Global Communication &amp; Strategic Synthesis: coordinated cross-border communications and synthesized strategic insights across international partners.</span>
+                <span data-lang="ko">글로벌 커뮤니케이션 및 전략 종합: 국제 파트너와의 소통 조율 및 전략적 인사이트 도출.</span>
+              </li>
+              <li>
+                <span data-lang="en">Operational Process Design &amp; Efficiency Optimization: redesigned internal workflows to streamline project delivery and reduce operational friction.</span>
+                <span data-lang="ko">운영 프로세스 설계 및 효율화: 내부 워크플로우 재설계로 프로젝트 납기 단축.</span>
+              </li>
+              <li>
+                <span data-lang="en">AI-Driven Content Production &amp; Quality Assurance: led AI-assisted content pipelines, maintaining quality standards for global-facing deliverables.</span>
+                <span data-lang="ko">AI 기반 콘텐츠 제작 및 품질 관리: AI 활용 콘텐츠 파이프라인 주도, 품질 기준 유지.</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -578,32 +635,34 @@
 
       <div class="entry">
         <div class="entry-meta">
-          <div class="entry-date">2024.10 –<br>2024.11</div>
-          <div class="entry-org">POSCO</div>
-        </div>
-        <div>
-          <div class="entry-title">Corporate Practicum Program</div>
-          <div class="entry-subtitle">POSCO 기업실무형 일경험 프로그램</div>
-          <div class="entry-body">Applied design-thinking methodology to regional tourism revitalization; conducted field surveys and analyzed 478 online reviews to identify consumer pain points; developed a prototype for a local tourism hub targeting the 20–30s demographic.</div>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-meta">
-          <div class="entry-date">2024.05 –<br>2024.07</div>
+          <div class="entry-date">2024.05 –<br>2024.11</div>
           <div class="entry-org">POSCO·POSTECH</div>
         </div>
         <div>
-          <div class="entry-title">POSCO AI·Big Data Academy</div>
-          <div class="entry-subtitle">Industrial Process Optimization — 26th Cohort</div>
+          <div class="entry-title">
+            <span data-lang="en">POSCO AI·Big Data Academy &amp; Corporate Practicum</span>
+            <span data-lang="ko">포스코 AI·빅데이터 아카데미 &amp; 기업실무 프로그램</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Industrial Process Optimization (26th Cohort) · Regional Tourism Strategy (24-7차)</span>
+            <span data-lang="ko">산업 공정 최적화 26기 · 지역 관광 활성화 24-7차</span>
+          </div>
           <div class="entry-body">
             <ul>
-              <li>Developed big data and machine learning models for industrial process optimization and digital transformation.</li>
-              <li>Built an optimization model reducing manufacturing defect rate to 1.0%.</li>
-              <li>Presented project results to industry experts; awarded <strong>3rd place</strong> in Innovation &amp; Technology Application.</li>
+              <li>
+                <span data-lang="en">Developed ML models for industrial process optimization; built a defect-rate optimization model achieving 1.0% defect rate. Awarded 3rd place in Innovation &amp; Technology Application.</span>
+                <span data-lang="ko">산업 공정 최적화를 위한 ML 모델 개발. 결함률 1.0% 달성. 혁신·기술 응용 부문 3위 수상.</span>
+              </li>
+              <li>
+                <span data-lang="en">Applied design-thinking to regional tourism revitalization; analyzed 478 online reviews and developed a local tourism hub prototype targeting the 20–30s demographic.</span>
+                <span data-lang="ko">디자인씽킹 기반 지역 관광 활성화 전략. 478건 후기 분석 및 2030대 타겟 관광 허브 프로토타입 개발.</span>
+              </li>
             </ul>
           </div>
-          <span class="entry-badge">3rd Place · Innovation &amp; Technology</span>
+          <span class="entry-badge">
+            <span data-lang="en">3rd Place · Innovation &amp; Technology</span>
+            <span data-lang="ko">혁신·기술 응용 3위</span>
+          </span>
         </div>
       </div>
 
@@ -613,13 +672,28 @@
           <div class="entry-org">SL Corp.</div>
         </div>
         <div>
-          <div class="entry-title">Industry–Academia Research Assistant</div>
-          <div class="entry-subtitle">LED Thermal Prediction &amp; Web Interface Development</div>
+          <div class="entry-title">
+            <span data-lang="en">Industry–Academia Research Assistant</span>
+            <span data-lang="ko">산학협력 연구원</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">LED Thermal Prediction &amp; Web Interface — SL Corp.</span>
+            <span data-lang="ko">LED 방열 예측 모델 및 웹 인터페이스 — 에스엘(주)</span>
+          </div>
           <div class="entry-body">
             <ul>
-              <li>Developed a deep-learning-based ML model predicting LED thermal behavior with &lt;10% prediction error.</li>
-              <li>Analyzed key thermal influencing factors per time interval to optimize development efficiency.</li>
-              <li>Built and deployed a real-time Shiny web visualization interface to the company's internal server network.</li>
+              <li>
+                <span data-lang="en">Developed a deep-learning-based ML model predicting LED thermal behavior with &lt;10% prediction error.</span>
+                <span data-lang="ko">딥러닝 기반 LED 방열 예측 모델 개발, 예측 오차율 10% 이하 달성.</span>
+              </li>
+              <li>
+                <span data-lang="en">Analyzed key thermal influencing factors per time interval to optimize development efficiency.</span>
+                <span data-lang="ko">시간대별 LED 방열 주요 영향 인자 분석으로 개발 효율성 최적화.</span>
+              </li>
+              <li>
+                <span data-lang="en">Built and deployed a real-time Shiny web visualization interface to the company's internal server.</span>
+                <span data-lang="ko">실시간 모니터링 R Shiny 웹 인터페이스 개발 및 기업 내부 서버 이관.</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -631,9 +705,18 @@
           <div class="entry-org">FootprintSquare</div>
         </div>
         <div>
-          <div class="entry-title">Frontend Development Intern</div>
-          <div class="entry-subtitle">Mobile App Development (Flutter / Firebase)</div>
-          <div class="entry-body">Developed a local tennis match recording and community app; implemented front-end architecture using Flutter and Firebase.</div>
+          <div class="entry-title">
+            <span data-lang="en">Frontend Development Intern</span>
+            <span data-lang="ko">프론트엔드 개발 인턴</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Mobile App Development (Flutter / Firebase)</span>
+            <span data-lang="ko">모바일 앱 개발 (Flutter / Firebase)</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Developed a local tennis match recording and community app; implemented front-end architecture using Flutter and Firebase.</span>
+            <span data-lang="ko">지역 테니스 경기 기록 및 커뮤니티 앱 개발. Flutter·Firebase 기반 프론트엔드 아키텍처 구현.</span>
+          </div>
         </div>
       </div>
 
@@ -643,9 +726,18 @@
           <div class="entry-org">Handong Univ.</div>
         </div>
         <div>
-          <div class="entry-title">Sub-Lab Director, Data Analysis Lab</div>
-          <div class="entry-subtitle">Research Lab Leadership</div>
-          <div class="entry-body">Organized study groups aligned with researchers' interests; integrated past research materials via Notion; coordinated inter-lab sports events and data visualization camps. Entire lab members received awards at a data visualization competition under this leadership.</div>
+          <div class="entry-title">
+            <span data-lang="en">Sub-Lab Director, Data Analysis Lab</span>
+            <span data-lang="ko">부랩장, 데이터분석연구실</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Research Lab Leadership — Handong Global University</span>
+            <span data-lang="ko">연구실 운영 — 한동대학교</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Organized study groups aligned with researchers' interests; integrated past research materials via Notion; coordinated inter-lab events and data visualization camps. Entire lab members received awards at a data visualization competition.</span>
+            <span data-lang="ko">연구원 관심사 맞춤 스터디 그룹 조직. Notion 기반 연구 자료 통합. 타연구실과 스포츠 이벤트·데이터시각화 캠프 운영. 연구실 전원 데이터시각화 대회 수상.</span>
+          </div>
         </div>
       </div>
 
@@ -655,18 +747,27 @@
           <div class="entry-org">Handong Univ.</div>
         </div>
         <div>
-          <div class="entry-title">Secretary-General, Handong International Development Associate</div>
-          <div class="entry-subtitle">International Development Studies Society</div>
-          <div class="entry-body">Conducted thematic research on international development cooperation; led fieldwork and statistics-based analysis on educational and career challenges facing multicultural youth in Korea.</div>
+          <div class="entry-title">
+            <span data-lang="en">Secretary-General, Handong International Development Associate</span>
+            <span data-lang="ko">총무, 국제개발협력 학회 (HIDA)</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">International Development Studies Society</span>
+            <span data-lang="ko">국제개발협력 학술 학회</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Conducted thematic research on international development cooperation; led fieldwork and statistics-based analysis on educational and career challenges facing multicultural youth in Korea.</span>
+            <span data-lang="ko">국제개발협력 관련 주제 연구 및 현장연계 프로젝트 기획. 다문화청소년 교육·진로 문제 현장조사 및 교육청 통계 기반 연구 진행.</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section class="section fade-in" id="research">
+    <!-- 03 RESEARCH -->
+    <section class="section" id="research">
       <div class="section-header">
         <span class="section-num">03</span>
-        <h2 class="section-title">Research</h2>
+        <h2 class="section-title"><span data-lang="en">Research</span><span data-lang="ko">연구</span></h2>
       </div>
 
       <div class="entry">
@@ -675,21 +776,39 @@
           <div class="entry-org">NRF · SL Corp.</div>
         </div>
         <div>
-          <div class="entry-title">ML-Based LED Thermal Prediction Model &amp; Web Interface</div>
-          <div class="entry-subtitle">Industry–Academia Collaboration, SL Corp. / NRF</div>
-          <div class="entry-body">Designed neural network algorithms predicting component-specific temperatures; developed R Shiny visualization interface. Achieved &lt;10% prediction error. Enabled real-time process monitoring for engineering teams.</div>
+          <div class="entry-title">
+            <span data-lang="en">ML-Based LED Thermal Prediction Model &amp; Web Interface</span>
+            <span data-lang="ko">머신러닝 기반 LED 방열 예측 모델 및 웹 인터페이스 구축</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Industry–Academia Collaboration, SL Corp. / NRF</span>
+            <span data-lang="ko">산학협력연구 — 에스엘(주) / 한국연구재단</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Designed neural network algorithms predicting component-specific temperatures; developed R Shiny visualization interface. Achieved &lt;10% prediction error. Enabled real-time process monitoring for engineering teams.</span>
+            <span data-lang="ko">부품별 온도 예측 신경망 알고리즘 설계. R Shiny 시각화 인터페이스 개발. 예측 오차율 10% 이하 달성. 실시간 공정 모니터링 지원.</span>
+          </div>
         </div>
       </div>
 
       <div class="entry">
         <div class="entry-meta">
-          <div class="entry-date">2023.08 –<br>2024.01</div>
+          <div class="entry-date">2023</div>
           <div class="entry-org">NRF</div>
         </div>
         <div>
-          <div class="entry-title">Selling Korea: Online Nationalism in Foreign-Observation Content</div>
-          <div class="entry-subtitle">Korea Research Foundation — Discourse Analysis</div>
-          <div class="entry-body">Analyzed nationalist discourse in YouTube comments on Korean foreigner-observation content (국뻥 channels). Applied BERT-based sentiment analysis and LDA topic modeling to extract dominant themes and trend shifts. Identified correlations between soft nationalist framing and audience engagement patterns.</div>
+          <div class="entry-title">
+            <span data-lang="en">Selling Korea: Online Nationalism in Foreign-Observation Content</span>
+            <span data-lang="ko">Selling Korea: 만연한 외국인 관찰 콘텐츠와 연성화된 민족주의</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Korea Research Foundation — Discourse Analysis</span>
+            <span data-lang="ko">한국연구재단 — 담론 분석</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Analyzed nationalist discourse in YouTube comments on Korean foreigner-observation content (국뻥 channels). Applied BERT-based sentiment analysis and LDA topic modeling to extract dominant themes and trend shifts.</span>
+            <span data-lang="ko">국뻥 콘텐츠 채널 유튜브 댓글의 민족주의 담론 분석. BERT 기반 감성분석 및 LDA 토픽모델링으로 주요 테마·트렌드 변화 추출.</span>
+          </div>
         </div>
       </div>
 
@@ -699,57 +818,78 @@
           <div class="entry-org">NRF</div>
         </div>
         <div>
-          <div class="entry-title">AI-Based Multivariate Digital Human Body Model for Human-Centered Product Design</div>
-          <div class="entry-subtitle">Korea Research Foundation</div>
-          <div class="entry-body">Analyzed 3D head scan data (2,377 Korean children &amp; adolescents, 2004–2013). Produced age-specific growth curve visualizations and statistical gender analysis (mean, SD, hypothesis testing) for anthropometric product design.</div>
+          <div class="entry-title">
+            <span data-lang="en">AI-Based Multivariate Digital Human Body Model for Human-Centered Product Design</span>
+            <span data-lang="ko">인간중심 제품·서비스 설계를 위한 AI 기반 다변량 디지털 인체 모델</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Korea Research Foundation</span>
+            <span data-lang="ko">한국연구재단</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Analyzed 3D head scan data of 2,377 Korean children &amp; adolescents (2004–2013). Produced age-specific growth curve visualizations and statistical gender analysis for anthropometric product design.</span>
+            <span data-lang="ko">한국 아동·청소년 2,377명의 3차원 머리 스캔 데이터 분석 (2004–2013). 연령별 성장곡선 시각화 및 성별 통계 분석 수행.</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- CONFERENCE -->
-    <section class="section fade-in" id="conference">
+    <!-- 04 CONFERENCE -->
+    <section class="section" id="conference">
       <div class="section-header">
         <span class="section-num">04</span>
-        <h2 class="section-title">Conference</h2>
+        <h2 class="section-title"><span data-lang="en">Conference</span><span data-lang="ko">학회 발표</span></h2>
       </div>
-
       <div class="pub-entry">
-        <div class="pub-title">Customer Experience Improvement Initiatives based on Topic Modeling Analysis of Food Purchase Reviews</div>
+        <div class="pub-title">
+          <span data-lang="en">Customer Experience Improvement Initiatives based on Topic Modeling Analysis of Food Purchase Reviews</span>
+          <span data-lang="ko">식품 구매 후기의 토픽모델링 기반 고객경험 증진 방안 제안</span>
+        </div>
         <div class="pub-meta">ICEE-CCA 2023 &nbsp;·&nbsp; Oral Presentation</div>
-        <div class="pub-abstract">Analyzed 2 million Kurly purchase reviews (2020–2022) using Korean morpheme analysis (Mecab) and three topic models (BERTopic, LDA, CTM). CTM achieved best performance, extracting three key topics: delivery status, product characteristics, and recipe relevance. Developed a responsive web demo providing consumers with topic-based product information to enhance purchase experience and platform credibility.</div>
+        <div class="pub-abstract">
+          <span data-lang="en">Analyzed 2 million Kurly purchase reviews (2020–2022) using Korean morpheme analysis (Mecab) and three topic models (BERTopic, LDA, CTM). CTM achieved best performance, extracting three key topics: delivery status, product characteristics, and recipe relevance. Developed a responsive web demo providing consumers with topic-based product information.</span>
+          <span data-lang="ko">마켓컬리 구매 후기 200만건(2020–2022) 분석. Mecab 형태소 분석 및 BERTopic, LDA, CTM 세 가지 토픽모델 비교. CTM 최우수 성능으로 배송 상태·제품 특성·레시피 관련성 3개 핵심 토픽 추출. 반응형 웹 데모 개발.</span>
+        </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="section fade-in" id="projects">
+    <!-- 05 PROJECTS -->
+    <section class="section" id="projects">
       <div class="section-header">
         <span class="section-num">05</span>
-        <h2 class="section-title">Projects</h2>
+        <h2 class="section-title"><span data-lang="en">Projects</span><span data-lang="ko">프로젝트</span></h2>
       </div>
 
       <div class="entry">
         <div class="entry-meta">
-          <div class="entry-date">2024.05 –<br>2024.07</div>
+          <div class="entry-date">2024.05 –<br>2024.11</div>
           <div class="entry-org">POSCO Academy</div>
         </div>
         <div>
-          <div class="entry-title">LLM-Based Collaborative Robot Arm for Apple Harvesting</div>
-          <div class="entry-subtitle">Smart Farm — Agricultural Automation</div>
-          <div class="entry-body">Designed a multi-robot system coordinated by LLM for automated orchard harvesting. Implemented OWL-ViT object detection to identify and sort apples by size; robots communicated via LLM to allocate subtasks and generate path plans.</div>
-          <span class="entry-badge">3rd Place · POSCO AI BigData Academy</span>
-        </div>
-      </div>
-
-      <div class="entry">
-        <div class="entry-meta">
-          <div class="entry-date">2024.10 –<br>2024.11</div>
-          <div class="entry-org">POSCO Program</div>
-        </div>
-        <div>
-          <div class="entry-title">Tourism Revitalization Strategy for Homigot, North Gyeongsang</div>
-          <div class="entry-subtitle">Regional Economic Policy — Design Thinking</div>
-          <div class="entry-body">Conducted 2 field surveys and analyzed 478 online reviews. Developed a concept for a social hub combining efficiency and romance for the 20–30s demographic, incorporating stamp tours, compound cultural spaces, and local specialty menus. Built a virtual prototype using Zepeto for stakeholder feedback.</div>
-          <span class="entry-badge">POSCO Corporate Practicum Award</span>
+          <div class="entry-title">
+            <span data-lang="en">LLM-Based Collaborative Robot Arm &amp; Tourism Hub Prototype</span>
+            <span data-lang="ko">LLM 기반 협동 로봇팔 적과 &amp; 관광 허브 프로토타입</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Smart Farm Automation (AI BigData Academy) · Regional Tourism Strategy (Corporate Practicum)</span>
+            <span data-lang="ko">스마트팜 자동화 (AI빅데이터 아카데미) · 지역 관광 활성화 (기업실무 프로그램)</span>
+          </div>
+          <div class="entry-body">
+            <ul>
+              <li>
+                <span data-lang="en">Designed a multi-robot system coordinated by LLM for automated orchard harvesting using OWL-ViT object detection.</span>
+                <span data-lang="ko">LLM 조율 기반 다중 로봇 시스템 설계. OWL-ViT 객체 탐지로 사과 크기별 분류 및 역할 분담.</span>
+              </li>
+              <li>
+                <span data-lang="en">Developed a local tourism hub concept for Homigot targeting the 20–30s demographic based on field surveys and 478 online reviews; built virtual prototype via Zepeto.</span>
+                <span data-lang="ko">호미곶 2030세대 타겟 관광 허브 콘셉트 개발. 현장조사·478건 후기 분석 기반. Zepeto 가상 프로토타입 제작.</span>
+              </li>
+            </ul>
+          </div>
+          <span class="entry-badge">
+            <span data-lang="en">3rd Place · POSCO AI BigData Academy</span>
+            <span data-lang="ko">포스코 AI 빅데이터 아카데미 3위</span>
+          </span>
         </div>
       </div>
 
@@ -759,10 +899,22 @@
           <div class="entry-org">Law Kick</div>
         </div>
         <div>
-          <div class="entry-title">Law Kick — AI-Based Legal Advisory System for Startups</div>
-          <div class="entry-subtitle">Startup Project — Public Data Innovation</div>
-          <div class="entry-body">Planned an AI-powered legal consultation platform improving legal accessibility for early-stage entrepreneurs, leveraging open government data.</div>
-          <span class="entry-badge">Encouragement Prize · Gyeongbuk Open Data Startup Contest</span>
+          <div class="entry-title">
+            <span data-lang="en">Law Kick — AI-Based Legal Advisory System for Startups</span>
+            <span data-lang="ko">Law Kick — AI 기반 스타트업 법률 자문 시스템</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Startup Project — Public Data Innovation</span>
+            <span data-lang="ko">스타트업 프로젝트 — 공공 데이터 혁신</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Planned an AI-powered legal consultation platform improving legal accessibility for early-stage entrepreneurs, leveraging open government data.</span>
+            <span data-lang="ko">공공 데이터 활용 AI 기반 법률 자문 플랫폼 기획. 예비·초기 창업자의 법률 접근성 개선.</span>
+          </div>
+          <span class="entry-badge">
+            <span data-lang="en">Encouragement Prize · Gyeongbuk Open Data Startup Contest</span>
+            <span data-lang="ko">경북 공공데이터 창업 경진대회 장려상</span>
+          </span>
         </div>
       </div>
 
@@ -772,9 +924,18 @@
           <div class="entry-org">Coursework</div>
         </div>
         <div>
-          <div class="entry-title">Consumer Experience Analysis of Online Grocery Reviews</div>
-          <div class="entry-subtitle">Big Data Analysis — Topic Modeling</div>
-          <div class="entry-body">Analyzed Kurly purchase review data to explore the relationship between consumer experience and product freshness. Applied topic modeling for data-driven insights and built an interactive visualization tool; results presented at ICEE-CCA 2023.</div>
+          <div class="entry-title">
+            <span data-lang="en">Consumer Experience Analysis of Online Grocery Reviews</span>
+            <span data-lang="ko">온라인 식품 구매 후기 소비자 경험 분석</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Big Data Analysis — Topic Modeling</span>
+            <span data-lang="ko">빅데이터 분석 강의 팀 프로젝트</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Analyzed Kurly purchase review data to explore the relationship between consumer experience and product freshness. Applied topic modeling and built an interactive visualization tool; presented at ICEE-CCA 2023.</span>
+            <span data-lang="ko">마켓컬리 구매 후기 분석으로 소비자 경험·제품 신선도 연관성 탐색. 토픽모델링 및 인터랙티브 시각화 도구 개발. ICEE-CCA 2023 발표.</span>
+          </div>
         </div>
       </div>
 
@@ -784,56 +945,83 @@
           <div class="entry-org">Data Analysis Lab</div>
         </div>
         <div>
-          <div class="entry-title">AiCAR Fleet Analytics — Vehicle Pattern Visualization</div>
-          <div class="entry-subtitle">Data Visualization Competition</div>
-          <div class="entry-body">Analyzed AiCAR customer fleet data: mapped company locations via Leaflet, and visualized seasonal fuel efficiency, speed, mileage, and odometer readings using radar charts and bar charts.</div>
-          <span class="entry-badge">Encouragement Prize · Handong SW Festival</span>
+          <div class="entry-title">
+            <span data-lang="en">AiCAR Fleet Analytics — Vehicle Pattern Visualization</span>
+            <span data-lang="ko">AiCAR 고객사 차량 데이터 분석 및 시각화</span>
+          </div>
+          <div class="entry-subtitle">
+            <span data-lang="en">Data Visualization Competition</span>
+            <span data-lang="ko">데이터 시각화 대회</span>
+          </div>
+          <div class="entry-body">
+            <span data-lang="en">Analyzed AiCAR customer fleet data: mapped company locations via Leaflet, and visualized seasonal fuel efficiency, speed, and mileage using radar and bar charts.</span>
+            <span data-lang="ko">Leaflet으로 고객사 위치 시각화. 계절별 연비·속도·운행거리·기름사용량 레이더차트 및 막대그래프 시각화.</span>
+          </div>
+          <span class="entry-badge">
+            <span data-lang="en">Encouragement Prize · Handong SW Festival</span>
+            <span data-lang="ko">한동대 SW 페스티벌 장려상</span>
+          </span>
         </div>
       </div>
     </section>
 
-    <!-- AWARDS -->
-    <section class="section fade-in" id="awards">
+    <!-- 06 AWARDS -->
+    <section class="section" id="awards">
       <div class="section-header">
         <span class="section-num">06</span>
-        <h2 class="section-title">Awards &amp; Honors</h2>
+        <h2 class="section-title"><span data-lang="en">Awards &amp; Honors</span><span data-lang="ko">수상 및 장학</span></h2>
       </div>
       <div class="award-row">
         <span class="award-year">2024</span>
-        <span class="award-name">인재창조원 과제수행 창의상</span>
+        <span class="award-name">
+          <span data-lang="en">Creative Achievement Award — Task Performance</span>
+          <span data-lang="ko">인재창조원 과제수행 창의상</span>
+        </span>
         <span class="award-org">POSCO</span>
       </div>
       <div class="award-row">
         <span class="award-year">2024</span>
-        <span class="award-name">AI BigData Project 장려상 (Encouragement Prize)</span>
+        <span class="award-name">
+          <span data-lang="en">Encouragement Prize — AI BigData Project</span>
+          <span data-lang="ko">AI 빅데이터 프로젝트 장려상</span>
+        </span>
         <span class="award-org">POSCO AI BigData Academy</span>
       </div>
       <div class="award-row">
         <span class="award-year">2023</span>
-        <span class="award-name">3rd Place — Gyeongbuk Open Data Startup Competition</span>
+        <span class="award-name">
+          <span data-lang="en">3rd Place — Gyeongbuk Open Data Startup Competition</span>
+          <span data-lang="ko">경상북도 공공데이터 창업 경진대회 3등</span>
+        </span>
         <span class="award-org">North Gyeongsang Province</span>
       </div>
       <div class="award-row">
         <span class="award-year">2022</span>
-        <span class="award-name">Encouragement Prize — Data Visualization Competition</span>
+        <span class="award-name">
+          <span data-lang="en">Encouragement Prize — Data Visualization Competition</span>
+          <span data-lang="ko">시각화 대회 장려상</span>
+        </span>
         <span class="award-org">Handong Global University</span>
       </div>
       <div class="award-row">
         <span class="award-year">2021</span>
-        <span class="award-name">Excellence Award — SW Education Video Competition</span>
+        <span class="award-name">
+          <span data-lang="en">Excellence Award — SW Education Video Competition</span>
+          <span data-lang="ko">SW 교육동영상 대회 우수상</span>
+        </span>
         <span class="award-org">Handong Global University</span>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section class="section fade-in" id="skills">
+    <!-- 07 SKILLS -->
+    <section class="section" id="skills">
       <div class="section-header">
         <span class="section-num">07</span>
-        <h2 class="section-title">Technical Skills</h2>
+        <h2 class="section-title"><span data-lang="en">Technical Skills</span><span data-lang="ko">기술 역량</span></h2>
       </div>
       <div class="skills-grid">
         <div class="skill-block">
-          <div class="skill-block-title">Programming</div>
+          <div class="skill-block-title"><span data-lang="en">Programming</span><span data-lang="ko">프로그래밍</span></div>
           <div class="skill-pills">
             <span class="pill accent">Python</span>
             <span class="pill accent">R</span>
@@ -845,49 +1033,49 @@
           </div>
         </div>
         <div class="skill-block">
-          <div class="skill-block-title">Machine Learning / AI</div>
+          <div class="skill-block-title"><span data-lang="en">Machine Learning / AI</span><span data-lang="ko">머신러닝 / AI</span></div>
           <div class="skill-pills">
-            <span class="pill">Machine Learning</span>
+            <span class="pill"><span data-lang="en">Machine Learning</span><span data-lang="ko">머신러닝</span></span>
             <span class="pill">NLP</span>
-            <span class="pill">Topic Modeling</span>
+            <span class="pill"><span data-lang="en">Topic Modeling</span><span data-lang="ko">토픽모델링</span></span>
             <span class="pill">BERT / LLM</span>
-            <span class="pill">Time Series</span>
+            <span class="pill"><span data-lang="en">Time Series</span><span data-lang="ko">시계열 분석</span></span>
           </div>
         </div>
         <div class="skill-block">
-          <div class="skill-block-title">Data & Visualization</div>
+          <div class="skill-block-title"><span data-lang="en">Data &amp; Visualization</span><span data-lang="ko">데이터 및 시각화</span></div>
           <div class="skill-pills">
             <span class="pill">R Shiny</span>
             <span class="pill">Leaflet</span>
-            <span class="pill">Data Visualization</span>
-            <span class="pill">Statistical Analysis</span>
+            <span class="pill"><span data-lang="en">Data Visualization</span><span data-lang="ko">데이터 시각화</span></span>
+            <span class="pill"><span data-lang="en">Statistical Analysis</span><span data-lang="ko">통계 분석</span></span>
           </div>
         </div>
         <div class="skill-block">
-          <div class="skill-block-title">Certificates</div>
+          <div class="skill-block-title"><span data-lang="en">Certificates</span><span data-lang="ko">자격증</span></div>
           <div class="skill-pills">
             <span class="pill accent">ADSP</span>
-            <span class="pill accent">Big Data Analysis Engineer</span>
+            <span class="pill accent"><span data-lang="en">Big Data Analysis Engineer</span><span data-lang="ko">빅데이터분석기사</span></span>
             <span class="pill">OPIc IH</span>
-            <span class="pill">TOEIC 855</span>
+            <span class="pill">TOEIC 825</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LANGUAGES -->
-    <section class="section fade-in" id="languages">
+    <!-- 08 LANGUAGES -->
+    <section class="section" id="languages">
       <div class="section-header">
         <span class="section-num">08</span>
-        <h2 class="section-title">Languages</h2>
+        <h2 class="section-title"><span data-lang="en">Languages</span><span data-lang="ko">어학</span></h2>
       </div>
       <div class="lang-row">
-        <span class="lang-name">Korean</span>
-        <span class="lang-level">Native</span>
+        <span class="lang-name"><span data-lang="en">Korean</span><span data-lang="ko">한국어</span></span>
+        <span class="lang-level"><span data-lang="en">Native</span><span data-lang="ko">원어민</span></span>
       </div>
       <div class="lang-row">
-        <span class="lang-name">English</span>
-        <span class="lang-level">OPIc IH &nbsp;·&nbsp; TOEIC 855</span>
+        <span class="lang-name"><span data-lang="en">English</span><span data-lang="ko">영어</span></span>
+        <span class="lang-level">OPIc IH &nbsp;·&nbsp; TOEIC 825</span>
       </div>
     </section>
 
@@ -895,11 +1083,37 @@
 </div>
 
 <footer>
-  <p>Jung-eun Park &nbsp;·&nbsp; Updated April 2026</p>
-  <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0f6366753b3c3d3e4f616e796a7d216c6062">jungeunpark0125@gmail.com</a></p>
+  <p>Jung-eun Park &nbsp;·&nbsp; <span data-lang="en">Updated April 2026</span><span data-lang="ko">2026년 4월 업데이트</span></p>
+  <p>jungeunpark0125@gmail.com</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Active nav highlight
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('ko', lang === 'ko');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ko').classList.toggle('active', lang === 'ko');
+    try { localStorage.setItem('cv-lang', lang); } catch(e) {}
+  }
+
+  // Restore saved language preference
+  try {
+    const saved = localStorage.getItem('cv-lang');
+    if (saved === 'ko') setLang('ko');
+  } catch(e) {}
+
+  // Active nav highlight on scroll
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = docum
+  const navLinks = document.querySelectorAll('.topbar-nav a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--cream)' : '';
+    });
+  });
+</script>
+
+</body>
+</html>
