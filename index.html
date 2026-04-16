@@ -86,7 +86,9 @@
     }
     .lang-btn.active { background: var(--accent); color: #fff; }
 
+    
     /* PDF button */
+    <!--
     .pdf-btn {
       font-family: 'DM Mono', monospace;
       font-size: 10px;
@@ -103,7 +105,8 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .pdf-btn:hover { border-color: var(--cream); color: var(--cream); }
-
+    -->
+    
     /* ─── HERO ─── */
     .hero {
       padding-top: 48px;
@@ -374,6 +377,7 @@
     body.ko .entry-body { font-family: 'Noto Serif KR', serif; font-size: 13px; }
 
     /* ─── PRINT / PDF ─── */
+    <!--
     @media print {
       .topbar, .sidebar, footer { display: none !important; }
       .hero { padding-top: 0; min-height: auto; }
@@ -387,6 +391,7 @@
       body { font-size: 13px; }
       a { color: inherit !important; text-decoration: none !important; }
     }
+    -->
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -424,12 +429,16 @@
       <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
       <button class="lang-btn" id="btn-ko" onclick="setLang('ko')">KO</button>
     </div>
+    
+    <!--
     <button class="pdf-btn" onclick="window.print()">
       <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5.5 1v8M2.5 6.5l3 3 3-3M1 11h9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       PDF
     </button>
+    -->
+    
   </div>
 </nav>
 
